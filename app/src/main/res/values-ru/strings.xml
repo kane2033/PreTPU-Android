@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">PreTPU</string>
+
+    <string name="navigation_drawer_open">Открыть шторку</string>
+    <string name="navigation_drawer_close">Закрыть шторку</string>
+
+    <!--Поля ввода для логина-->
+    <string name="email">E-mail</string>
+    <string name="password">Пароль</string>
+    <string name="remember_me">Запомнить меня</string>
+    <string name="login">Войти</string>
+    <string name="goto_register">Нет аккаунта? Зарегистрируйтесь!</string>
+    <string name="login_via_service">Войдите через социальные сети</string>
+
+    <!--Поля ввода для регистрации-->
+    <string name="email_reg">E-mail*</string>
+    <string name="password_reg">Пароль*</string>
+    <string name="first_name">Имя*</string>
+    <string name="last_name">Фамилия</string>
+    <string name="middle_name">Отчество</string>
+    <string name="gender">Пол</string>
+    <string name="gender_male">Мужской</string>
+    <string name="gender_female">Женский</string>
+    <string name="gender_none">Не указ.</string>
+    <string name="choose_language">Язык*</string>
+    <string name="language">Язык</string>
+    <string name="phone_number">Номер телефона</string>
+    <string name="checkbox">Согласие на обработку персональных данных*</string>
+    <string name="register">Зарегистрироваться</string>
+    <!--Текст ошибок и статусов выполнения-->
+    <string name="validation_success">Все поля корректны, регистрируем вашу учетную запись…</string>
+    <string name="reg_success">Регистрация успешна</string>
+
+    <!--Строки для профиля пользователя-->
+    <string name="profile_greeting">Добро пожаловать!</string>
+    <string name="profile_title">Личный кабинет</string>
+    <string name="profile_edit_button">Редактировать профиль</string>
+    <string name="profile_logout">Выйти из учетной записи</string>
+    <!--Поля данных о пользователе-->
+    <string name="profile_old_password">Текущий пароль*</string>
+    <string name="profile_new_password">Новый пароль</string>
+    <string name="profile_firstname">Имя</string>
+    <string name="profile_language">Язык</string>
+    <string name="profile_save">Сохранить изменения</string>
+    <string name="profile_save_success">Изменения успешно сохранены</string>
+
+    <string name="missing_content">Контент отсутствует</string>
+    <string name="email_error">Адрес почты некорректен</string>
+    <string name="password_error">"Пароль должен содержать минимум 8 символов,одну прописную букву, одну цифру. Разрешенные символы:  ! &amp; ^ % $ # @ _ | \\ / "</string>
+    <string name="lastname_error">Превышен лимит символов</string>
+    <string name="firstname_error">Превышен лимит символов</string>
+    <string name="middlename_error">Превышен лимит символов</string>
+    <string name="language_error">Язык не выбран</string>
+    <string name="phone_error">Превышен лимит символов</string>
+    <string name="empty_field_error">Поле должно быть заполнено</string>
+    <string name="checkbox_error">Вы должны согласиться на обработку персональных данных</string>
+    <string name="auth_error">Ошибка при попытке авторизоваться</string>
+    <string name="login_error">Ошибка при попытке войти</string>
+    <string name="register_error">Ошибка при попытке зарегистрироваться</string>
+    <string name="drawer_error">Ошибка при получении предметов выдвижной шторки</string>
+    <string name="article_error">Ошибка при получении статьи</string>
+    <string name="feed_error">Ошибка при получении списка статей</string>
+    <string name="profile_get_error">Ошибка при получении информации о пользователе</string>
+    <string name="profile_save_error">Ошибка при сохранении информации о пользователе</string>
+    <string name="token_invalid_error">Вам необходимо авторизоваться</string>
+    <string name="language_rus">Русский</string>
+    <string name="language_en">Английский</string>
+    <string name="language_zh">Китайский</string>
+    <string name="refresh_token_error">Ошибка при обновлении токена</string>
+    <string name="token_expired_error">Ваш сеанс истек, необходимо повторно авторизоваться</string>
+    <string name="dialog_ok">OK</string>
+    <string name="dialog_cancel">Отменить</string>
+    <string name="dialog_yes">Да</string>
+    <string name="dialog_no">Нет</string>
+    <string name="profile_logout_confirm">Вы действительно хотите выйти из учетной записи?</string>
+    <string name="notification_channel_name">Новости</string>
+    <string name="notification_channel_description">Новости ТПУ</string>
+    <string name="forgot_password">Забыли пароль?</string>
+    <string name="reset_password_header">Сброс пароля</string>
+    <string name="reset_password_text">Забыли свой пароль? Напишите ваш адрес электронной почты и мы пришлем вам ссылку на сброс пароля.</string>
+    <string name="reset_password_send">Восстановить мой пароль</string>
+    <string name="reset_password_error">Ошибка при попытке восстановить пароль</string>
+    <string name="reset_password_success">Ссылка на восстановление пароля отправлена на вашу почту</string>
+    <string name="reg_header">Регистрация</string>
+    <string name="reg_text">Заполните все необходимые поля для успешной регистрации</string>
+    <string name="reg_text_provider">Дозаполните поля, чтобы иметь возможность авторизоваться через выбранный сервис за один клик!</string>
+    <string name="reg_text_required">Обязательные поля отмечены - *</string>
+    <string name="profile_text_required">Для изменения данных о пользователе необходимо корректно написать текущий пароль</string>
+    <string name="group">Группа</string>
+    <string name="get_groups_error">Ошибка при получении групп</string>
+    <string name="group_none">Не указ.</string>
+    <string name="group_choose">Выберите группу</string>
+    <string name="dialog_none">Не указ.</string>
+    <string name="personal_info_name">Профиль</string>
+    <string name="documents_name">Документы</string>
+    <string name="docs_get_error">Ошибка при получении списка документов</string>
+    <string name="get_languages_error">Ошибка при получении списка языков</string>
+    <string name="docs_download_error">Ошибка при попытке загрузить документ</string>
+    <string name="portal_my_payments">Мои платежи</string>
+    <string name="portal_payment">Оплата</string>
+    <string name="portal_scholarship">Стипендия</string>
+    <string name="portal_grades">Оценки</string>
+    <string name="portal_personal_card">Личная карточка</string>
+    <string name="portal_name">Профиль портала ТПУ</string>
+    <string name="calendar_name">Календарь событий</string>
+    <string name="calendar_get_error">Ошибка при попытке получить список событий</string>
+    <string name="calendar_today_date">В этот день, %1$s</string>
+    <string name="validation_error">Поле неккоректно</string>
+    <string name="request_base_error">Произоша ошибка сервера</string>
+    <string name="network_connection_error">Проблема с интернет соединением</string>
+    <string name="base_error">Произошла ошибка</string>
+</resources>

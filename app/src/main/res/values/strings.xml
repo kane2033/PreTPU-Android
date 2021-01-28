@@ -1,0 +1,116 @@
+<resources>
+    <string name="app_name">PreTPU</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <!--Языки-->
+    <string name="language_rus">Russian</string>
+    <string name="language_en">English</string>
+    <string name="language_zh">Chinese</string>
+
+    <!--Поля ввода для логина-->
+    <string name="email">E-mail</string>
+    <string name="password">Password</string>
+    <string name="forgot_password">Forgot password?</string>
+    <string name="remember_me">Remember me</string>
+    <string name="login">Login</string>
+    <string name="goto_register">Don\'t have account yet? Sign up!</string>
+    <string name="login_via_service">Login via service</string>
+
+    <!--Восстановление пароля-->
+    <string name="reset_password_header">Password reset</string>
+    <string name="reset_password_text">Forgot your password? Enter your email address and we will send you a link to reset your password.</string>
+    <string name="reset_password_send">Reset my password</string>
+    <string name="reset_password_success">Link for resetting password has been sent to your email</string>
+
+    <!--Поля ввода для регистрации-->
+    <string name="reg_header">Registration</string>
+    <string name="reg_text">Fill all the required fields to successfully register</string>
+    <string name="reg_text_provider">Fill the left required fields to be able to login via chosen service in one click!</string>
+    <string name="reg_text_required">Required fields are marked with - *</string>
+    <string name="email_reg">E-mail*</string>
+    <string name="password_reg">Password*</string>
+    <string name="first_name">First name*</string>
+    <string name="last_name">Last name</string>
+    <string name="middle_name">Middle name</string>
+    <string name="group">Group</string>
+    <string name="group_choose">Choose your group</string>
+    <string name="group_none">None</string>
+    <string name="gender">Gender</string>
+    <string name="gender_male">Male</string>
+    <string name="gender_female">Female</string>
+    <string name="gender_none">None</string>
+    <string name="choose_language">Language*</string>
+    <string name="language">Language</string>
+    <string name="phone_number">Phone number</string>
+    <string name="checkbox">Data use agreement*</string>
+    <string name="register">Register</string>
+    <!--Текст ошибок и статусов выполнения-->
+    <string name="validation_success">All fields validated successfully, your account is being registered…</string>
+    <string name="reg_success">Registration successful</string>
+
+    <!--Названия вкладок-->
+    <string name="personal_info_name">Profile</string>
+    <string name="documents_name">Documents</string>
+    <string name="portal_name">TPU portal profile</string>
+
+    <!--Строки для профиля пользователя-->
+    <string name="profile_greeting">Welcome!</string>
+    <string name="profile_title">My profile</string>
+    <string name="profile_edit_button">Edit profile</string>
+    <string name="profile_logout">Logout</string>
+    <string name="profile_logout_confirm">Are you sure you want to log out?</string>
+    <!--Поля данных о пользователе-->
+    <string name="profile_old_password">Current password*</string>
+    <string name="profile_new_password">New password</string>
+    <string name="profile_firstname">First name</string>
+    <string name="profile_language">Language</string>
+    <string name="profile_text_required">You must enter current password to change your profile info</string>
+    <string name="profile_save">Save changes</string>
+    <string name="profile_save_success">The changes have been successfully saved</string>
+
+    <!--TPU Portal-->
+    <string name="portal_personal_card">Personal card</string>
+    <string name="portal_grades">Grades</string>
+    <string name="portal_scholarship">Scholarship</string>
+    <string name="portal_payment">Payment</string>
+    <string name="portal_my_payments">My payments</string>
+
+    <!--Календарь событий-->
+    <string name="calendar_name">Events calendar</string>
+    <string name="calendar_today_date">This day, %1$s</string>
+
+    <!--DialogFragments-->
+    <string name="dialog_ok">OK</string>
+    <string name="dialog_cancel">Cancel</string>
+    <string name="dialog_yes">Yes</string>
+    <string name="dialog_no">No</string>
+    <string name="dialog_none">None</string>
+
+    <!--Notifications-->
+    <string name="notification_channel_name">News</string>
+    <string name="notification_channel_description">TPU news</string>
+
+    <string name="missing_content">Content is missing</string>
+
+    <!--Тэг, необходимый для перехода на предыдущий фрагмент-->
+    <string name="prev_frag_tag" translatable="false">PREV_FRAGMENT</string>
+    <string name="prev_auth_frag_tag" translatable="false">PREV_AUTH_FRAGMENT</string>
+    <string name="dialog_frag_tag" translatable="false">DIALOG_FRAGMENT</string>
+
+    <!--Имя выбранного для авторизации сервиса-->
+    <string name="provider_google" translatable="false">google</string>
+    <string name="provider_facebook" translatable="false">facebook</string>
+    <string name="provider_vk" translatable="false">vk</string>
+
+    <!--OAuth ID Android клиента для google-->
+    <string name="server_client_id_google" translatable="false">1039916265675-14qckgl5k1bdvl0bi3eae0sj2u08rilv.apps.googleusercontent.com</string>
+
+    <!--Facebook-->
+    <string name="facebook_app_id" translatable="false">347824149711941</string>
+    <string name="fb_login_protocol_scheme" translatable="false">fb347824149711941</string>
+
+    <!--VK app id for SDK-->
+    <integer name="com_vk_sdk_AppId">7556989</integer>
+</resources>
