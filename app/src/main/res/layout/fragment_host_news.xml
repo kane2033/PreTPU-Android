@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="ru.tpu.pretpu.features.news.presentation.viewmodel.MainMenuViewModel" />
+    </data>
+
+    <androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/drawer_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".features.news.ui.NewsHostFragment"
+        tools:openDrawer="end">
+
+        <androidx.coordinatorlayout.widget.CoordinatorLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+                android:id="@+id/swipeRefreshLayout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:refreshListener="@{viewModel.refreshListener}">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <include
+                        android:id="@+id/app_bar"
+                        layout="@layout/layout_app_bar"
+                        app:isVisible="@{viewModel.toolbarVisibility}"
+                        app:title="@{viewModel.toolbarTitle}" />
+
+                    <androidx.fragment.app.FragmentContainerView
+                        android:id="@+id/news_nav_host_fragment"
+                        android:name="androidx.navigation.fragment.NavHostFragment"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        app:defaultNavHost="true"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/app_bar"
+                        app:navGraph="@navigation/nav_news" />
+
+                    <include
+                        android:id="@+id/progressBarLayout"
+                        layout="@layout/layout_progress_bar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:isLoading="@{viewModel.isLoading}"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/app_bar" />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+        </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+        <include
+            android:id="@+id/navigation_view"
+            layout="@layout/layout_navigation_view"
+            app:itemSelectedListener="@{viewModel.onDrawerItemSelected}"
+            app:items="@{viewModel.drawerMenu}" />
+
+    </androidx.drawerlayout.widget.DrawerLayout>
+
+</layout>
+
+

@@ -15,6 +15,7 @@
     <string name="base_error">An error has occurred</string>
     <string name="network_connection_error">There is a problem with your Internet connection</string>
     <string name="request_base_error">Server error has occurred</string>
+    <string name="content_missing_error">Content is missing</string>
     <string name="auth_error">Error while trying to authorize</string>
     <string name="login_error">Error while trying to login</string>
     <string name="register_error">Error while trying to register</string>

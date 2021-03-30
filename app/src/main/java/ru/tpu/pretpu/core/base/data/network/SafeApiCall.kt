@@ -13,7 +13,7 @@ import javax.inject.Singleton
 /**
  * Безопасный вызов retrofit запроса с помощью [safeApiResult]
  * с возвратом тела запроса или [Failure].
- * @param call - сетевой запрос
+ * @param [call] - сетевой запрос
  * */
 @Singleton
 class SafeApiCall
@@ -27,7 +27,22 @@ class SafeApiCall
         if (!networkHandler.isNetworkAvailable()) return Either.Left(Failure.NetworkConnection)
         val response = call.invoke()
         return try {
-            when (response.isSuccessful) {
+            if (response.isSuccessful) {
+                val responseBody = response.body()
+                if (responseBody != null) {
+                    Either.Right(transform(responseBody))
+                } else {
+                    Either.Left(Failure.MissingContentFailure)
+                }
+            } else {
+                Either.Left(
+                    Failure.RequestFailure(
+                        code = response.code(),
+                        message = response.errorBody()?.getField("message")
+                    )
+                )
+            }
+            /*when (response.isSuccessful) {
                 true -> Either.Right(transform(response.body()!!))
                 false -> {
                     Either.Left(
@@ -37,7 +52,7 @@ class SafeApiCall
                         )
                     )
                 }
-            }
+            }*/
         } catch (exception: Throwable) {
             Either.Left(Failure.NetworkConnection)
         }
@@ -52,7 +67,27 @@ class SafeApiCall
         if (!networkHandler.isNetworkAvailable()) return Either.Left(Failure.NetworkConnection)
         val response = call.invoke()
         return try {
-            when (response.isSuccessful) {
+            if (response.isSuccessful) {
+                val responseBody = response.body()
+                if (responseBody != null) {
+                    Either.Right(
+                        Pair(
+                            response.code(),
+                            transform(responseBody)
+                        )
+                    )
+                } else {
+                    Either.Left(Failure.MissingContentFailure)
+                }
+            } else {
+                Either.Left(
+                    Failure.RequestFailure(
+                        code = response.code(),
+                        message = response.errorBody()?.getField("message")
+                    )
+                )
+            }
+            /*when (response.isSuccessful) {
                 true -> {
                     Either.Right(
                         Pair(
@@ -69,7 +104,7 @@ class SafeApiCall
                         )
                     )
                 }
-            }
+            }*/
         } catch (exception: Throwable) {
             Either.Left(Failure.NetworkConnection)
         }

@@ -1,21 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@color/recycler_background">
+<layout>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/list"
-        app:layoutManager="LinearLayoutManager"
+    <data>
+
+        <variable
+            name="viewModel"
+            type="ru.tpu.pretpu.features.news.presentation.viewmodel.LinksViewModel" />
+
+        <variable
+            name="adapter"
+            type="ru.tpu.pretpu.features.news.presentation.adapter.LinkItemAdapter" />
+
+        <variable
+            name="title"
+            type="String" />
+    </data>
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_margin="@dimen/recycler_margin"/>
+        android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/missingContentText"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        style="@style/missing_content_text" />
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/recycler_margin"
+            app:adapter="@{adapter}"
+            app:items="@{viewModel.linkItems}"
+            app:onClick="@{viewModel.onItemClicked}"
+            app:layoutManager="LinearLayoutManager"
+            tools:listitem="@layout/item_list" />
 
-</RelativeLayout>
+        <TextView
+            android:id="@+id/missingContentText"
+            style="@style/missing_content_text"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent" />
+
+    </RelativeLayout>
+</layout>

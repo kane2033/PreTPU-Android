@@ -3,8 +3,8 @@ package ru.tpu.pretpu.core.base.presentation
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import ru.tpu.pretpu.core.base.domain.exception.Failure
 import kotlinx.coroutines.Job
+import ru.tpu.pretpu.core.base.domain.exception.Failure
 
 /**
  * Базовый класс [ViewModel], хранящий элементы,
@@ -16,6 +16,15 @@ abstract class BaseViewModel : ViewModel() {
     // задача
     protected val job = Job()
 
+    // Статус загрузки (используется с прогресс баром)
+    protected val _isLoading = MutableLiveData(false)
+
+    val isLoading: LiveData<Boolean> = _isLoading
+
+    fun setIsLoadingValue(isLoading: Boolean) {
+        _isLoading.value = isLoading
+    }
+
     // Упаковка ошибки в event, чтобы
     // отображение ошибки возникало только один раз
     protected val _failure = MutableLiveData<Event<Failure>>()
@@ -26,6 +35,7 @@ abstract class BaseViewModel : ViewModel() {
     // Стандартный метод обработки ошибки, упаковывающий ее
     // в event
     protected fun handleFailure(failure: Failure) {
+        _isLoading.value = false
         this._failure.value = Event(failure)
     }
 

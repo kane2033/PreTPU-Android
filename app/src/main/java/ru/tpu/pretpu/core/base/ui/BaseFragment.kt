@@ -2,26 +2,41 @@ package ru.tpu.pretpu.core.base.ui
 
 import android.app.Activity
 import android.content.Context
+import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import androidx.annotation.IdRes
 import androidx.annotation.LayoutRes
-import androidx.annotation.NavigationRes
 import androidx.annotation.StringRes
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
-import ru.tpu.pretpu.core.base.domain.exception.Failure
 import ru.tpu.pretpu.R
+import ru.tpu.pretpu.core.base.domain.exception.Failure
 import ru.tpu.pretpu.core.base.presentation.BaseViewModel
 
 /**
  * Базовый класс [Fragment],
  * имеющий общие для других фрагментов методы.
  * */
-abstract class BaseFragment(@LayoutRes layoutId: Int) : Fragment(layoutId) {
+abstract class BaseFragment(@LayoutRes layoutId: Int) :
+    Fragment(layoutId) {
 
     protected abstract val viewModel: BaseViewModel
+
+    // Получение viewmodel из NewsNavHostFragment
+    // (parentFragment == FragmentContainerView,
+    // parentFragment.parentFragment == HostFragment)
+    protected inline fun <reified VM : BaseViewModel> BaseFragment.parentViewModels() =
+        viewModels<VM>(ownerProducer = {
+            requireParentFragment().requireParentFragment()
+        })
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+    }
 
     // Отображение Toast уведомления со строкой из ресурсов
     internal fun makeToast(@StringRes message: Int) {
@@ -51,6 +66,7 @@ abstract class BaseFragment(@LayoutRes layoutId: Int) : Fragment(layoutId) {
     ) {
         viewModel.failure.observe(viewLifecycleOwner, {
             it.getContentIfNotHandled()?.let { failure ->
+                Log.e("FAILURE", "Failure has occurred: ${failure.javaClass.name}")
                 handleFailure.invoke(failure)
                 when (failure) {
                     is Failure.NetworkConnection -> makeToast(R.string.network_connection_error)
@@ -58,6 +74,7 @@ abstract class BaseFragment(@LayoutRes layoutId: Int) : Fragment(layoutId) {
                         failure.code,
                         failure.message ?: getString(R.string.request_base_error)
                     )
+                    is Failure.MissingContentFailure -> makeToast(R.string.content_missing_error)
                     else -> makeToast(R.string.base_error)
                 }
             }
@@ -68,7 +85,7 @@ abstract class BaseFragment(@LayoutRes layoutId: Int) : Fragment(layoutId) {
         findNavController().navigate(action)
     }
 
-    fun Fragment.hideKeyboard() {
+    protected fun Fragment.hideKeyboard() {
         view?.let { activity?.hideKeyboard(it) }
     }
 

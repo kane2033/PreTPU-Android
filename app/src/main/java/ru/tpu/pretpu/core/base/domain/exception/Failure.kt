@@ -8,6 +8,7 @@ package ru.tpu.pretpu.core.base.domain.exception
 sealed class Failure(val exception: Exception = Exception("Failure")) {
     object None : Failure()
     object NetworkConnection : Failure()
+    object MissingContentFailure : Failure()
 
     open class MultipleFailures(val failures: Collection<Failure> = emptyList()): Failure()
 

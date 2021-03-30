@@ -1,37 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:clickable="true"
-    android:focusable="true"
-    android:fitsSystemWindows="false"
-    style="@style/nav_header_layout">
+<layout>
 
-    <ImageView
-        android:id="@+id/account_icon"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:src="@drawable/ic_account_circle" />
+    <data>
 
-    <TextView
+        <variable
+            name="viewModel"
+            type="ru.tpu.pretpu.features.news.presentation.viewmodel.MainMenuViewModel" />
+    </data>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        style="@style/nav_header_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingStart="5dp"
-        android:text="@string/profile_title"
-        style="@style/nav_header_text_profile"/>
-    <TextView
-        android:id="@+id/firstName"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingStart="5dp"
-        android:text="FirstName LastName"
-        style="@style/nav_header_text"/>
-    <TextView
-        android:id="@+id/email"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingStart="5dp"
-        android:text="somebigassemailfortesting@mail.com"
-        style="@style/nav_header_text"/>
-</LinearLayout>
+        android:clickable="true"
+        android:fitsSystemWindows="false"
+        android:focusable="true"
+        android:gravity="bottom"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/account_icon"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:src="@drawable/ic_account_circle" />
+
+        <TextView
+            style="@style/nav_header_text_profile"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="5dp"
+            android:paddingEnd="5dp"
+            android:text="@string/profile_title" />
+
+        <TextView
+            android:id="@+id/firstName"
+            style="@style/nav_header_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="5dp"
+            android:paddingEnd="5dp"
+            android:text="@{viewModel.headerUserInfo.firstName}"
+            tools:text="FirstName LastName" />
+
+        <TextView
+            android:id="@+id/email"
+            style="@style/nav_header_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="5dp"
+            android:paddingEnd="5dp"
+            android:text="@{viewModel.headerUserInfo.email}"
+            tools:text="somebigassemailfortesting@mail.com" />
+    </LinearLayout>
+</layout>

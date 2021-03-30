@@ -8,6 +8,16 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
+    <color name="green_200">#bfdfa2</color>
+    <color name="green_500">#80bf44</color>
+    <color name="green_700">#5d9b32</color>
+
+    <color name="blue_200">#9ecfef</color>
+    <color name="blue_700">#447fbf</color>
+
+    <color name="grey_800">#191919</color>
+    <color name="grey_900">#212121</color>
+
     <!--PreTPU colors-->
     <color name="colorPrimary">#80bf44</color>
     <color name="colorPrimaryDark">#4e8e0d</color>

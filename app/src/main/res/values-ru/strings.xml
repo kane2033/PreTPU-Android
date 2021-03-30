@@ -110,4 +110,5 @@
     <string name="request_base_error">Произоша ошибка сервера</string>
     <string name="network_connection_error">Проблема с интернет соединением</string>
     <string name="base_error">Произошла ошибка</string>
+    <string name="content_missing_error">Контент отсутствует</string>
 </resources>

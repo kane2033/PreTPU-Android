@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_main"
+    app:startDestination="@id/authNavHostFragment">
+
+    <include
+        android:id="@+id/nav_auth"
+        app:graph="@navigation/nav_auth" />
+    <include
+        android:id="@+id/nav_news"
+        app:graph="@navigation/nav_news" />
+    <fragment
+        android:id="@+id/authNavHostFragment"
+        android:name="ru.tpu.pretpu.features.auth.ui.AuthNavHostFragment"
+        android:label="AuthNavHostFragment">
+        <action
+            android:id="@+id/action_authNavHostFragment_to_newsNavHostFragment"
+            app:destination="@id/newsNavHostFragment"
+            app:popUpTo="@id/authNavHostFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/newsNavHostFragment"
+        android:name="ru.tpu.pretpu.features.news.ui.NewsNavHostFragment"
+        android:label="NewsNavHostFragment" />
+
+
+</navigation>

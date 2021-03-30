@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_news"
+    app:startDestination="@id/launcherFragment">
+    <fragment
+        android:id="@+id/launcherFragment"
+        android:name="ru.tpu.pretpu.features.news.ui.LauncherFragment"
+        tools:layout="@layout/fragment_launcher"
+        android:label="LauncherFragment" />
+    <fragment
+        android:id="@+id/feedFragment"
+        android:name="ru.tpu.pretpu.features.news.ui.FeedFragment"
+        tools:layout="@layout/fragment_feed"
+        android:label="FeedFragment" />
+    <fragment
+        android:id="@+id/linksFragment"
+        tools:layout="@layout/fragment_links"
+        android:name="ru.tpu.pretpu.features.news.ui.LinksFragment"
+        android:label="LinksFragment" />
+    <fragment
+        android:id="@+id/articleFragment"
+        tools:layout="@layout/fragment_article"
+        android:name="ru.tpu.pretpu.features.news.ui.ArticleFragment"
+        android:label="ArticleFragment" />
+
+</navigation>
