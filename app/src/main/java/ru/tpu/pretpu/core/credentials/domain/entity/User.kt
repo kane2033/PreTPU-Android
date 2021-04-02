@@ -7,6 +7,6 @@ import kotlinx.parcelize.Parcelize
 data class User(
     val email: String?,
     val firstName: String?,
-    val groupName: String?,
+    val group: Group?,
     val language: Language?
 ) : Parcelable

@@ -4,10 +4,11 @@ import android.content.SharedPreferences
 import ru.tpu.pretpu.core.base.extension.putString
 import ru.tpu.pretpu.core.base.extension.putStrings
 import ru.tpu.pretpu.core.base.extension.removeStrings
-import ru.tpu.pretpu.core.credentials.domain.repository.CredentialsRepository
 import ru.tpu.pretpu.core.credentials.domain.entity.Credentials
+import ru.tpu.pretpu.core.credentials.domain.entity.Group
 import ru.tpu.pretpu.core.credentials.domain.entity.Language
 import ru.tpu.pretpu.core.credentials.domain.entity.User
+import ru.tpu.pretpu.core.credentials.domain.repository.CredentialsRepository
 import javax.inject.Inject
 
 /**
@@ -25,7 +26,9 @@ class CredentialsRepositoryImpl
         private const val FIRST_NAME_KEY = "FIRST_NAME"
         private const val LANGUAGE_ID_KEY = "LANGUAGE_ID"
         private const val LANGUAGE_NAME_KEY = "LANGUAGE_NAME"
-        private const val GROUP_KEY = "GROUP"
+        private const val GROUP_ID_KEY = "GROUP_ID"
+        private const val GROUP_NAME_KEY = "GROUP_NAME"
+        private const val INTERNAL_GROUP_ID_KEY = "INTERNAL_GROUP_ID"
     }
 
     /**
@@ -48,7 +51,10 @@ class CredentialsRepositoryImpl
 
                         EMAIL_KEY to value.user?.email,
                         FIRST_NAME_KEY to value.user?.firstName,
-                        GROUP_KEY to value.user?.groupName,
+
+                        GROUP_ID_KEY to value.user?.group?.id,
+                        GROUP_NAME_KEY to value.user?.group?.name,
+                        INTERNAL_GROUP_ID_KEY to value.user?.group?.internalGroupId,
 
                         LANGUAGE_ID_KEY to value.user?.language?.languageId,
                         LANGUAGE_NAME_KEY to value.user?.language?.languageName
@@ -64,7 +70,10 @@ class CredentialsRepositoryImpl
 
                     EMAIL_KEY,
                     FIRST_NAME_KEY,
-                    GROUP_KEY,
+
+                    GROUP_ID_KEY,
+                    GROUP_NAME_KEY,
+                    INTERNAL_GROUP_ID_KEY,
 
                     LANGUAGE_ID_KEY,
                     LANGUAGE_NAME_KEY
@@ -80,7 +89,10 @@ class CredentialsRepositoryImpl
                     mapOf(
                         EMAIL_KEY to value.email,
                         FIRST_NAME_KEY to value.firstName,
-                        GROUP_KEY to value.groupName,
+
+                        GROUP_ID_KEY to value.group?.id,
+                        GROUP_NAME_KEY to value.group?.name,
+                        INTERNAL_GROUP_ID_KEY to value.group?.internalGroupId,
 
                         LANGUAGE_ID_KEY to value.language?.languageId,
                         LANGUAGE_NAME_KEY to value.language?.languageName
@@ -90,11 +102,30 @@ class CredentialsRepositoryImpl
                 sharedPreferences.removeStrings(
                     EMAIL_KEY,
                     FIRST_NAME_KEY,
-                    GROUP_KEY,
+
+                    GROUP_ID_KEY,
+                    GROUP_NAME_KEY,
+                    INTERNAL_GROUP_ID_KEY,
 
                     LANGUAGE_ID_KEY,
                     LANGUAGE_NAME_KEY
                 )
+            }
+        }
+
+    override var group: Group?
+        get() = Group(groupId, groupName, internalGroupId)
+        set(value) {
+            if (value != null) {
+                sharedPreferences.putStrings(
+                    mapOf(
+                        GROUP_ID_KEY to value.id,
+                        GROUP_NAME_KEY to value.name,
+                        INTERNAL_GROUP_ID_KEY to value.internalGroupId
+                    )
+                )
+            } else {
+                sharedPreferences.removeStrings(GROUP_ID_KEY, GROUP_NAME_KEY, INTERNAL_GROUP_ID_KEY)
             }
         }
 
@@ -154,10 +185,21 @@ class CredentialsRepositoryImpl
             sharedPreferences.putString(LANGUAGE_NAME_KEY, value)
         }
 
-    override var group: String?
-        get() = sharedPreferences.getString(GROUP_KEY, null)
+    override var groupId: String?
+        get() = sharedPreferences.getString(GROUP_ID_KEY, null)
         set(value) {
-            sharedPreferences.putString(GROUP_KEY, value)
+            sharedPreferences.putString(GROUP_ID_KEY, value)
         }
 
+    override var groupName: String?
+        get() = sharedPreferences.getString(GROUP_NAME_KEY, null)
+        set(value) {
+            sharedPreferences.getString(GROUP_NAME_KEY, value)
+        }
+
+    override var internalGroupId: String?
+        get() = sharedPreferences.getString(INTERNAL_GROUP_ID_KEY, null)
+        set(value) {
+            sharedPreferences.getString(INTERNAL_GROUP_ID_KEY, value)
+        }
 }

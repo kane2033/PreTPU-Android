@@ -20,4 +20,10 @@
         <item>@string/gender_male</item>
         <item>@string/gender_female</item>
     </string-array>
+
+    <!--Документы-->
+    <string-array name="docs_selector_tabs">
+        <item>@string/new_documents</item>
+        <item>@string/seen_documents</item>
+    </string-array>
 </resources>

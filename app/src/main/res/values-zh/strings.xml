@@ -101,4 +101,9 @@
     <string name="network_connection_error">您的互联网连接出现问题</string>
     <string name="request_base_error">发生服务器错误</string>
     <string name="content_missing_error">内容丢失</string>
+    <string name="new_documents">新文件</string>
+    <string name="seen_documents">看到的文件</string>
+    <string name="portal_academic_plan">学术计划</string>
+    <string name="portal_schedule">日程</string>
+    <string name="portal_mail">TPU电子邮件</string>
 </resources>

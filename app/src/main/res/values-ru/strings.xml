@@ -111,4 +111,9 @@
     <string name="network_connection_error">Проблема с интернет соединением</string>
     <string name="base_error">Произошла ошибка</string>
     <string name="content_missing_error">Контент отсутствует</string>
+    <string name="new_documents">Новые документы</string>
+    <string name="seen_documents">Просмотренные документы</string>
+    <string name="portal_academic_plan">Учебный план</string>
+    <string name="portal_schedule">Расписание</string>
+    <string name="portal_mail">Почта ТПУ</string>
 </resources>
